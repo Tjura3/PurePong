@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallMove : MonoBehaviour
 {
@@ -11,12 +12,18 @@ public class BallMove : MonoBehaviour
     Vector2 speed = new Vector2(4, -4);
 
     bool ballServed = false;
+    int brickcount = 0;
 
 
     //audiothings maybe
     public GameController gameController;
 
- 
+    private void Start()
+    {
+        gameController.Score = PlayerPrefs.GetInt("lastscore", 0);
+    }
+
+
     void Update()
     {
         if (Input.GetButton("Fire1") && !ballServed)
@@ -49,8 +56,16 @@ public class BallMove : MonoBehaviour
             else if (newPos.y < -TOPBOTTOM)   //death here I think
             {
                 ballServed = false;
-                newPos = new Vector3(-7.75f, 0, 0);
+                newPos = new Vector3(-2.46f, -1.19f, 0);
                 gameController.Lives--;
+
+                if (gameController.Lives == 0)
+                {
+                    //save score
+                    PlayerPrefs.SetInt("lastscore", gameController.Score);
+                    //game over
+                    SceneManager.LoadScene("GameOver");
+                }
                
             }
             else if (newPos.y > TOPBOTTOM) //not here btw
@@ -74,6 +89,13 @@ public class BallMove : MonoBehaviour
         {
             Destroy(c.gameObject);
             gameController.Score += 10;
+            brickcount++;
+            if(brickcount == 20)
+            {
+                PlayerPrefs.SetInt("lastscore", gameController.Score);
+                SceneManager.LoadScene("Retroactive");
+            }
+
         }
         else
         {
