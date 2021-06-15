@@ -12,6 +12,10 @@ public class BallMove : MonoBehaviour
 
     bool ballServed = false;
 
+
+    //audiothings maybe
+    public GameController gameController;
+
  
     void Update()
     {
@@ -42,12 +46,14 @@ public class BallMove : MonoBehaviour
                 newPos.x = LEFTRIGHT;
                 speed.x *= -1;
             }
-            else if (newPos.y < -TOPBOTTOM)
+            else if (newPos.y < -TOPBOTTOM)   //death here I think
             {
-                newPos.y = -TOPBOTTOM;
-                speed.y *= -1;
+                ballServed = false;
+                newPos = new Vector3(-7.75f, 0, 0);
+                gameController.Lives--;
+               
             }
-            else if (newPos.y > TOPBOTTOM)
+            else if (newPos.y > TOPBOTTOM) //not here btw
             {
                 newPos.y = TOPBOTTOM;
                 speed.y *= -1;
@@ -62,10 +68,18 @@ public class BallMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D c)
     {
-        if (c.gameObject.tag == "Player")
+        speed.y *= -1;
+
+        if (c.gameObject.tag != "Player")
         {
-            speed.y *= -1;
+            Destroy(c.gameObject);
+            gameController.Score += 10;
         }
+        else
+        {
+            gameController.Score += 5;
+        }
+
     }
 
 }
