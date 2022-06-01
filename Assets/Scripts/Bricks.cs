@@ -14,7 +14,9 @@ public class Bricks : MonoBehaviour
             for (int x = 0; x<5; x++)
             {
                 GameObject brick = Instantiate(brickTemplate);
+               
                 brick.transform.position = new Vector3(x * 3, 4 - y) + new Vector3(-6, 0);
+                brick.transform.position -= new Vector3(0, 1);
                 SpriteRenderer renderer = brick.GetComponent<SpriteRenderer>();
                 renderer.material.color = coulours[y];
             }

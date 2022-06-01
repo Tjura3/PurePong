@@ -93,6 +93,7 @@ public class BallMove : MonoBehaviour
             if(brickcount == 20)
             {
                 PlayerPrefs.SetInt("lastscore", gameController.Score);
+                Time.timeScale += 0.5f;
                 SceneManager.LoadScene("Retroactive");
             }
 
