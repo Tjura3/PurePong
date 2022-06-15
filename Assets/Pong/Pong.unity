@@ -159,7 +159,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309760466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b02f9c7215229248908c19c5098dd83, type: 3}
   m_Name: 
@@ -200,7 +200,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -257,6 +257,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1012279238}
   - component: {fileID: 1012279239}
+  - component: {fileID: 1012279240}
+  - component: {fileID: 1012279241}
+  - component: {fileID: 1012279242}
   m_Layer: 0
   m_Name: emptyMain
   m_TagString: Untagged
@@ -290,3 +293,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c6b531f10ec4343a3c2d890a75e856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1012279240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012279237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883bbadd4773e074892fc7906b64f32f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaler: 2
+--- !u!114 &1012279241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012279237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36baf0ef3b726547a112e56e52735f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaler: 2
+--- !u!114 &1012279242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012279237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104ab995e2b95bd43a34abfc9af5a2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballVelocity: {x: 0, y: 0}
+  ballLocation: {x: 0, y: 0}
+  speed: 0
